@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block extraload %}
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div id="categories">
+      <h3>Categories</h3>
+      <ul>
+          {% for category in categories %}
+	  <li><a href={{url_for('show_category',category_name=category.name)}}>{{category.name}}</a></li>
+          {% endfor %}
+      </ul>
+    </div>
+    <div id="sep"></div>
+    <div id="latest-items">
+      <h3>Some Items</h3>
+      <ul>
+          {% for category, book in books %}
+	      <li> <a href="{{url_for('show_book', category_name=category.name, book_name=book.name)}}"> {{book.name}} </a> </li>
+          {% endfor %}
+
+	  {% if username %}
+	      <br>
+	      <li> <a href="{{url_for('add_new_book')}}"> add a new book +</a></li>
+	  {% endif %}
+      </ul>
+    </div>
+{% endblock %}

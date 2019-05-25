@@ -1,0 +1,30 @@
+#content h3, h4{
+  padding: 5px 10px;
+}
+
+#content a{
+  color: blue;
+  text-decoration: none;
+}
+
+#content ul{
+  list-style: none;
+}
+
+#content li, p{
+  margin: 5px 10px;
+}
+
+#content p{
+  color: grey;
+}
+
+#categories{
+  float: left;
+  width: calc(50%);
+}
+
+#latest-items{
+  float: left;
+  width: calc(50%);
+}

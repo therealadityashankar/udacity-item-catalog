@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block extraload %}
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <form method='post'>
+	    <h3>Name: </h3>
+	    <input type="text" name="name"> 
+	    <h3>Description: </h3>
+	    <input type="text" name="description"> 
+	    <h3>category: </h3>
+	    <select name="category_id">
+		{% for category in categories %}
+		<option value={{category.id}}>{{category.name}}</option>
+		{% endfor %}
+	    </select>
+	    <br>
+	    <input type="submit" value="submit">
+    </form>
+{% endblock %}

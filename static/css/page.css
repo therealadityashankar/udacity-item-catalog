@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: lightgrey;
+}
+
+input[type=button]{
+    margin: 10px;
+}
+
+h2{
+    margin: 10px;
+    display: inline-block;
+}
+
+.heading{
+    background: khaki;
+}
+
+.head-limit{
+    margin: 0 auto;
+    width: 75%;
+    overflow: hidden;
+}
+
+#content{
+    margin: 5px auto;
+    width: 75%;
+    border: 1px solid grey;
+    background: white;
+    overflow: hidden;
+}
+
+#login-link, #logged-in-as, #logout-link{
+    float: right;
+    padding: 5px 10px;
+    margin: 10px;
+    background: skyblue;
+    border: 0;
+    text-decoration: none;
+    color: black;
+}
+
+#content-notice{
+    color: grey;
+    float: left;
+}

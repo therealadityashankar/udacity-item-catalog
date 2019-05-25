@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+    <link href="{{url_for('static', filename='css/page.css')}}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=start"> </script>
+        {% block extraload %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="heading">
+            <div class="head-limit">
+            <a href="/"><h2>The Library of wierdly sorted books</h2></a>
+	    {% if username %}
+	    	<p id="logged-in-as">{{username}}</p>
+	        <a id="logout-link" href="{{url_for('logout_user')}}">logout</a>
+	    {% else %}
+	        <a id="login-link" href="{{url_for('login_user')}}">login</a>
+	    {% endif %}
+            </div>
+        </div>
+
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+	<br>
+        <p id="content-notice">notice: all content here is from <a href="https://www.wikipedia.org">wikipedia.org<a></p>
+        </div>
+	<script>
+	    var auth2;
+
+	    gapi.load('auth2', function() {
+		auth2 = gapi.auth2.init();
+	    });
+
+	    function signOut() {
+		auth2.signOut().then(function() {
+		    console.log('User signed out.');
+		});
+	    }
+            
+            $('logout-link').click(signOut);
+	</script>
+    </body>
+</html>

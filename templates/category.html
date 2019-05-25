@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block extraload %}
+    <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <h2>{{category.name}}</h2>
+    <ul>
+    {% for book in books %}
+        <li> 
+	    <a href={{url_for('show_book', category_name=category.name, book_name=book.name)}}>{{book.name}}</a>
+	</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
